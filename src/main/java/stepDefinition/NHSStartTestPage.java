@@ -3,6 +3,7 @@ package stepDefinition;
 import org.junit.After;
 
 import coreComponents.browserFactory;
+import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.*;
 import objectPage.NHSClaimBenefits;
@@ -79,11 +80,22 @@ public class NHSStartTestPage {
 
 
 @After
-public void homeScreen()
+public void afterScenario(Scenario sc) throws Exception
 {
-	System.out.println("Pass1");
-	
-	
+	System.out.println("After method is working ");
+	try
+	{
+	if(sc.isFailed())
+	{
+		String name = sc.getName();
+		bf.screenShot(name);
+		
+	}}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+
 }
 
 

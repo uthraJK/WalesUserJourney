@@ -2,6 +2,7 @@ package testRunner;
 
 import java.io.File;
 
+
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
@@ -9,6 +10,7 @@ import com.cucumber.listener.Reporter;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features ="src/test/resources/featureFile/data.feature",
@@ -18,10 +20,12 @@ import cucumber.api.junit.Cucumber;
 		        monochrome = true )
 				
 public class Runner {
+
 	@AfterClass
-	
-    public static void writeExtentReport() {
-        Reporter.loadXMLConfig(new File("config/report.xml"));
-    
-    }
+	public static void teardown() {
+	Reporter.loadXMLConfig(new File("C:\\Users\\Balajee\\eclipse-workspace\\com.UthraJK.WalesUserJourney\\config\\extent-config.xml"));
+	Reporter.setSystemInfo("user", System.getProperty("user.name"));
+	Reporter.setSystemInfo("os", "Mac OSX");
+	Reporter.setTestRunnerOutput("Sample test runner output message");
+	}
 }

@@ -11,10 +11,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features ="src/test/resources/FeatureFile/HomePageSearch.feature",
+@CucumberOptions(features ="src/test/resources/featureFile/data.feature",
 				glue= "stepDefinition",
 				dryRun=false,
-				plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"}, 
+				plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		        monochrome = true )
 				
 public class Runner {

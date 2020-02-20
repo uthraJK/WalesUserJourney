@@ -11,9 +11,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-public class browserFactory {
+import basePackage.baseClass;
+
+public class browserFactory extends baseClass {
 	
-	public static WebDriver driver;
+	
 	public static Properties prop;
 
 	public browserFactory() {
@@ -35,10 +37,10 @@ public class browserFactory {
 		if (browserName.equalsIgnoreCase("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver",
-					"/com.UthraJK.WalesUserJourney/src/test/resources/Drivers/chromedriver.exe");
+					"C:\\Users\\Balajee\\eclipse-workspace\\Arcadia\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 			
-	}else if(browserName.equalsIgnoreCase("FireFox"))
+/*	}else if(browserName.equalsIgnoreCase("FireFox"))
 	{
 		System.setProperty("webdriver.gecko.driver",
 				"/com.UthraJK.WalesUserJourney/src/test/resources/Drivers/geckodriver.exe");
@@ -49,13 +51,12 @@ public class browserFactory {
 				"/com.UthraJK.WalesUserJourney/src/test/resources/Drivers/IEDriverServer.exe");
 		driver = new InternetExplorerDriver();
 	}
+	*/
 	driver.manage().window().maximize();
 	driver.manage().deleteAllCookies();
 	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	driver.get(prop.getProperty("url"));
 	}	
 	
-	
-	
-
+	}
 }

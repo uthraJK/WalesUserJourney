@@ -2,6 +2,7 @@ package basePackage;
 
 import java.io.File;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class baseClass {
+	
 	public static WebDriver driver;
 	
 	public boolean ElementFound(WebElement element)
@@ -28,6 +30,13 @@ public class baseClass {
 		e.printStackTrace();
 		}
 		return res;
+	}
+	
+	public void javaScriptExecutor(WebElement element)
+	{
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		System.out.println("yes");
 	}
 	public String selectFromDropdown(String option,WebElement element)
 	{

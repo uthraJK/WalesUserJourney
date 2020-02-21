@@ -22,7 +22,7 @@ public class browserFactory extends baseClass {
 		try {
 			prop = new Properties();
 			FileInputStream input = new FileInputStream(
-					"C:\\Users\\Balajee\\eclipse-workspace\\com.UthraJK.WalesUserJourney\\src\\test\\resources\\GlobalSettings.properties");
+					"C:\\Users\\Balajee\\eclipse-workspace\\WalesUserJourney-master\\src\\test\\resources\\GlobalSettings.properties");
 			prop.load(input);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

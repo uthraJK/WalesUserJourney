@@ -23,7 +23,8 @@ public class Runner {
 
 	@AfterClass
 	public static void teardown() {
-	Reporter.loadXMLConfig(new File("C:\\Users\\Balajee\\eclipse-workspace\\WalesUserJourney-master\\config\\extent-config.xml"));
+	String userDir = System.getProperty("user.dir");
+	Reporter.loadXMLConfig(new File(userDir +"/config/extent-config.xml"));
 	Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	Reporter.setSystemInfo("os", "Mac OSX");
 	Reporter.setTestRunnerOutput("Sample test runner output message");

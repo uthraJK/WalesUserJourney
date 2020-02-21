@@ -15,14 +15,14 @@ import basePackage.baseClass;
 
 public class browserFactory extends baseClass {
 	
-	
+	public static String userDir = System.getProperty("user.dir");
 	public static Properties prop;
 
 	public browserFactory() {
 		try {
 			prop = new Properties();
 			FileInputStream input = new FileInputStream(
-					"C:\\Users\\Balajee\\eclipse-workspace\\WalesUserJourney-master\\src\\test\\resources\\GlobalSettings.properties");
+					userDir +"/src/test/resources/GlobalSettings.properties");
 			prop.load(input);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -41,8 +41,7 @@ public class browserFactory extends baseClass {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver",
-					"C:\\Users\\Balajee\\eclipse-workspace\\Arcadia\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", userDir +"/src/test/resources/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			
 /*	}else if(browserName.equalsIgnoreCase("FireFox"))
